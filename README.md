@@ -1,5 +1,5 @@
 # money to metal convertor
-This is a money to metal convertor for gold and sliver
+This is a money to metal convertor for gold and sliver using metalpriceapi
 
 Given a given currency and amount, it will return how many ounces of that metal
 

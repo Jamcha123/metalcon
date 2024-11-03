@@ -4,34 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script defer type="module" src="./index.js"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="items">
-            <textarea name="items" id="money" class="money" placeholder="How much money?"></textarea>
-            <select name="money" id="currency" class="currency">
-                <option value="USD">USD</option>
-                <option value="EUR">EURO</option>
-                <option value="GBP">GBP</option>
-                <option value="SEK">SEK</option>
-            </select>
-        </div>
-        <div class="arrows">
-            <img src="./assets/forward.png" width="100%" height="25%" style="scale: 0.75;" alt="">
-            <img src="./assets/backwards.png" width="100%" height="25%" style="scale: 0.75;" alt="">
-        </div>
-        <div class="items">
-            <div class="text">
+    <form action="/" id="form" method="get">
+        <input type="number" id="money" placeholder="Enter the ammout of money">
+        <select name="currency" id="currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="SEK">SEK</option>
+            <option value="GBP">GBP</option>
+        </select>
+        <select name="metal" id="metal">
+            <option value="XAU">Sliver</option>
+            <option value="XAG">Gold</option>
+        </select>
+        <input type="submit" value="submit" id="submit">
+        <div id="text" class="text">
 
-            </div>
-            <select name="metal" id="metals">
-                <option value="XAU">Sliver</option>
-                <option value="XAG">Gold</option>
-            </select>
         </div>
-    </div>
-    <script></script>
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io() 
+    </script>
 </body>
 </html>
