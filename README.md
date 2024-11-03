@@ -7,6 +7,8 @@ runs on expressjs
 How to use:
     ```
         git clone https://github.com/Jamcha123/metalcon
+        
         cd metalcon
+        
         node index.js
     ```
