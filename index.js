@@ -1,10 +1,8 @@
 import express from 'express';
-import http from 'http';
+import http from 'https';
 import axios from 'axios'
 import {Server} from 'socket.io'
 import fs from 'fs'
-
-const link = "https://api.metalpriceapi.com/v1/latest?api_key=0d9c48bd888d9b9baf10b0a59a2e083f&base=USD&currencies=EUR,XAU,XAG"
 
 const app = express()
 app.use(express.static("public"))
@@ -25,6 +23,8 @@ const server = http.createServer(app)
 
 const io = new Server(server)
 io.on("connection", (socket) => {
-    console.log("hello world"); 
+    socket.on("price", (msg) => {
+        const link = "https://api.metalpriceapi.com/v1/latest?api_key=0d9c48bd888d9b9baf10b0a59a2e083f&base=" + msg[1] + "&currencies=" + msg[2] + "";
+    })
 })
 server.listen(8080, () => {console.log("http://127.0.0.1:8080/index.html")});
