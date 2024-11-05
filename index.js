@@ -1,5 +1,5 @@
 import express from 'express';
-import http from 'https';
+import http from 'http';
 import axios from 'axios'
 import {Server} from 'socket.io'
 import fs from 'fs'
@@ -24,7 +24,8 @@ const server = http.createServer(app)
 const io = new Server(server)
 io.on("connection", (socket) => {
     socket.on("price", (msg) => {
-        const link = "https://api.metalpriceapi.com/v1/latest?api_key=0d9c48bd888d9b9baf10b0a59a2e083f&base=" + msg[1] + "&currencies=" + msg[2] + "";
+        const link = "https://api.metalpriceapi.com/v1/latest?api_key=0d9c48bd888d9b9baf10b0a59a2e083f&base=${msg[1]}&currencies=${msg[2]}";
+        window.location.href = link
     })
 })
-server.listen(8080, () => {console.log("http://127.0.0.1:8080/index.html")});
+server.listen(5173, () => {console.log("http://127.0.0.1:5173/index.html")});
