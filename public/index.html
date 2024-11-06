@@ -9,7 +9,7 @@
 <body>
     <div class="container"></div>
     <form action="https://api.metalpriceapi.com/v1/latest?api_key=0d9c48bd888d9b9baf10b0a59a2e083f&base=USD&currencies=XAU" id="form" method="get">
-        <input type="number" id="money" placeholder="Enter the amount of money">
+        <input type="number" id="money" required placeholder="Enter the amount of money">
         <select name="currency" id="currency">
             <option value="USD">USD</option>
             <option value="EUR">EUR</option>
@@ -30,9 +30,15 @@
         const socket = io() 
         const [form, money, currency, metal] = [document.getElementById("form"), document.getElementById("money"), document.getElementById("currency"), document.getElementById("metal")];
         form.addEventListener("submit", (e) => {
+            e.preventDefault()
             if(money.value || currency.value || metal.value){
                 socket.emit("price", [money.value, currency.value, metal.value])
                 [money.value, currency.value, metal.value] = ["", "", ""];
+                socket.on("back", (msg) => {
+                    let x = document.createElement("h1");
+                    x.innerText = msg;
+                    document.getElementById("text").appendChild(x)
+                })
             }
         })
     </script>
