@@ -2,6 +2,7 @@
   "dependencies": {
     "axios": "^1.7.7",
     "express": "^4.21.1",
+    "jquery": "^3.7.1",
     "nodemon": "^3.1.7",
     "python-shell": "^5.0.0",
     "socket.io": "^4.8.1"
@@ -24,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/Jamcha123/crypto-api-/issues"
   },
-  "homepage": "https://github.com/Jamcha123/crypto-api-#readme"
+  "homepage": "https://github.com/Jamcha123/crypto-api-#readme",
+  "devDependencies": {
+    "@types/jquery": "^3.5.32"
+  }
 }

@@ -26,6 +26,7 @@
         </div>
     </form>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         const socket = io() 
         const [form, money, currency, metal] = [document.getElementById("form"), document.getElementById("money"), document.getElementById("currency"), document.getElementById("metal")];
@@ -35,8 +36,9 @@
                 socket.emit("price", [money.value, currency.value, metal.value])
                 [money.value, currency.value, metal.value] = ["", "", ""];
                 socket.on("back", (msg) => {
-                    let x = document.createElement("h1");
-                    x.innerText = msg;
+                    $("#text").empty();
+                    let x = document.createElement("h1") ;
+                    x.innerText = msg + " " + currency.value;
                     document.getElementById("text").appendChild(x)
                 })
             }

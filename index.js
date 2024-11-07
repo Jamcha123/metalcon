@@ -2,6 +2,7 @@ import express from 'express';
 import http from 'http';
 import axios from 'axios'
 import {Server} from 'socket.io'
+import $ from 'jquery'
 import fs from 'fs'
 
 const app = express()
